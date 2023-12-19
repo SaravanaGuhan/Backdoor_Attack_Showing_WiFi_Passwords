@@ -11,14 +11,15 @@ This repository presents a demonstration that reveals a potential security vulne
   1. Unsecured storage of WiFi credentials
   2. Reverse shell establishment on the target device
 
-## How It Works
+## Setup and Execution
 
-1. **Deployment**: A Python script is executed on the victim's device.
-2. **Backdoor & Reverse Shell**: The script initiates a connection, creating both a backdoor and a reverse shell. This allows the attacker command execution privileges when the devices share a common WiFi network.
-3. **Command Interface**: Through a specified port, the attacker can communicate with the victim's device.
-4. **Retrieval**: Upon the command "show wifi passwords," the victim's device sends back stored WiFi names and passwords.
-5. **Command Execution**: The attacker can execute commands on the victim's machine via the established reverse shell.
-6. **Display & Control**: The attacker receives WiFi details and can control the victim's device, emphasizing the severity of the vulnerabilities.
+1. **Deployment**: Run the `client.py` Python script on the victim's device.
+2. **Connectivity**: Ensure both devices are connected to the same WiFi network.
+3. **Configuration**: Obtain the victim's device IP address and specify it, along with the desired port number, in the `client.py` script.
+4. **Reverse Shell**: On the attacker's machine, initiate a netcat listener using the command: `nc -lvp [portnumber]`.
+5. **Command Interface**: Use the established connection to issue commands from the attacker's machine.
+6. **Retrieval**: Upon the command "show wifi passwords," the victim's device sends back stored WiFi names and passwords.
+7. **Command Execution**: The attacker can execute commands on the victim's machine via the established reverse shell.
 
 ## Code Breakdown
 
